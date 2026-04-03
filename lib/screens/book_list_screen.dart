@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/book.dart';
-import '../data/books_data.dart';
+import '../assets/books_data.dart';
 import 'book_detail_screen.dart';
 
 class BookListScreen extends StatelessWidget {

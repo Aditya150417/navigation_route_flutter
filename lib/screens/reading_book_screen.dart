@@ -26,7 +26,7 @@ class _ReadingBookScreenState extends State<ReadingBookScreen> {
       ),
       body: Stack(
         children: [
-          SfPdfViewer.network(
+          SfPdfViewer.asset(
             widget.book.pdfUrl,
             onDocumentLoaded: (PdfDocumentLoadedDetails details) {
               setState(() {
@@ -36,7 +36,7 @@ class _ReadingBookScreenState extends State<ReadingBookScreen> {
             onDocumentLoadFailed: (PdfDocumentLoadFailedDetails details) {
               setState(() {
                 _isLoading = false;
-                _errorMessage = 'Gagal memuat PDF.\n\nPastikan perangkat terhubung ke internet.\n\nError: ${details.description}';
+                _errorMessage = 'Gagal memuat PDF.\n\nPastikan file PDF bernama sesuai dan berada di folder lib/assets/books_pdf.\n\nError: ${details.description}';
               });
             },
           ),
