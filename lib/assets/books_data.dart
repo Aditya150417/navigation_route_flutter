@@ -20,7 +20,7 @@ const List<Book> booksData = [
     author: 'Pat Morin',
     description:
         'An introduction to the implementation and analysis of data structures for sequences (lists), queues, priority queues, unordered dictionaries, ordered dictionaries, and graphs. This is a free, open-source textbook.',
-    pdfUrl: 'lib/assets/books_pdf/Open Data Structures (In C++).pdf',
+    pdfUrl: 'lib/assets/books_pdf/Open Data Structures.pdf',
   ),
   Book(
     title: 'Pro Git',
