@@ -10,7 +10,6 @@ Aplikasi ini mengimplementasikan konsep **navigasi dan route** pada Flutter deng
 > **Lengkapi kode program yang ada pada contoh program navigasi dan route.**
 > - Tambahkan jumlah buku pada halaman utama menjadi **10 buku**
 > - Pada tombol **"Read the Book"** buatlah fungsi navigasi yang mengarah ke halaman baru dan membuka **FILE PDF** dari buku tersebut
-> - Integrasikan file PDF buku secara penuh ke dalam folder *assets* aplikasi.
 
 ---
 
