@@ -1,7 +1,7 @@
 # 📚 Navigation Route Flutter — Book Reader App
 
 Proyek Flutter untuk tugas mata kuliah **Pemrograman Perangkat Mobile** (Pertemuan 6).  
-Aplikasi ini mengimplementasikan konsep **navigasi dan route** pada Flutter dengan fitur pembaca buku digital berbasis PDF.
+Aplikasi ini mengimplementasikan konsep **navigasi dan route** pada Flutter dengan fitur pembaca buku digital berbasis PDF yang berjalan 100% offline secara lokal.
 
 ---
 
@@ -10,58 +10,45 @@ Aplikasi ini mengimplementasikan konsep **navigasi dan route** pada Flutter deng
 > **Lengkapi kode program yang ada pada contoh program navigasi dan route.**
 > - Tambahkan jumlah buku pada halaman utama menjadi **10 buku**
 > - Pada tombol **"Read the Book"** buatlah fungsi navigasi yang mengarah ke halaman baru dan membuka **FILE PDF** dari buku tersebut
+> - Integrasikan file PDF buku secara penuh ke dalam folder *assets* aplikasi.
 
 ---
 
 ## ✨ Fitur Aplikasi
 
-- 📖 **Daftar 10 Buku** — Menampilkan 10 buku pemrograman berkualitas tinggi yang bersumber dari internet
-- 🔍 **Halaman Detail Buku** — Menampilkan judul, penulis, dan sinopsis tiap buku
-- 📄 **PDF Viewer** — Membuka dan membaca file PDF buku langsung di dalam aplikasi menggunakan `syncfusion_flutter_pdfviewer`
-- 🧭 **Navigasi Multi-Halaman** — Navigasi bertingkat: Daftar → Detail → Baca PDF
-- 🎨 **UI Modern & Profesional** — Tampilan bersih dengan tema warna gelap profesional
+- 📖 **Daftar 10 Buku** — Menampilkan 10 buku pemrograman berkualitas yang tersemat langsung di dalam aplikasi.
+- 🔍 **Halaman Detail Buku** — Menampilkan judul, penulis, dan detail sinopsis komprehensif.
+- 📄 **Offline PDF Viewer** — Membaca file PDF buku langsung tanpa internet dengan menggunakan metode `SfPdfViewer.asset`.
+- 🧭 **Navigasi Multi-Halaman** — Navigasi dan rute layar bertingkat: Daftar → Detail Buku → Pembaca PDF.
+- 🎨 **UI Modern & Profesional** — Tema visual aplikasi bersih, elegan, dengan profil warna gelap untuk pengalaman membaca terbaik.
 
 ---
 
-## 📂 Struktur Direktori
+## 📂 Struktur Direktori Terbaru
+
+Sistem folder telah dioptimalkan agar *routing* dan penempatan *assets* berjalan sempurna:
 
 ```
 lib/
-├── main.dart                   # Entry point aplikasi & konfigurasi tema
+├── main.dart                   # Entry point aplikasi & konfigurasi behavior UI
 ├── models/
-│   └── book.dart               # Model data buku (title, author, description, pdfUrl)
-├── data/
-│   └── books_data.dart         # Dataset 10 buku dengan URL PDF resmi
+│   └── book.dart               # Kelas model data buku
+├── assets/
+│   ├── books_data.dart         # Dataset 10 buku beserta referensi *path* asetnya
+│   └── books_pdf/              # Direktori berisi 10 file master PDF lokal
 └── screens/
-    ├── book_list_screen.dart    # Halaman 1: Daftar semua buku
-    ├── book_detail_screen.dart  # Halaman 2: Detail & sinopsis buku
-    └── reading_book_screen.dart # Halaman 3: Pembaca PDF online
+    ├── book_list_screen.dart    # Halaman Utama: Menampilkan *list* buku
+    ├── book_detail_screen.dart  # Halaman Kedua: Memuat detail buku & tombol Read
+    └── reading_book_screen.dart # Halaman Ketiga: Mesin perender PDF
 ```
-
----
-
-## 📚 Daftar 10 Buku
-
-| No | Judul | Penulis | Sumber PDF |
-|----|-------|---------|------------|
-| 1 | Python for Everybody | Charles R. Severance | py4e.com |
-| 2 | Dive into Deep Learning | Aston Zhang, et al. | d2l.ai |
-| 3 | Open Data Structures (C++) | Pat Morin | opendatastructures.org |
-| 4 | Pro Git | Scott Chacon & Ben Straub | Springer |
-| 5 | Eloquent JavaScript | Marijn Haverbeke | eloquentjavascript.net |
-| 6 | Think Python | Allen B. Downey | greenteapress.com |
-| 7 | Structure & Interpretation of Computer Programs | Abelson & Sussman | MIT |
-| 8 | Programming Languages: App. and Interpretation | Shriram Krishnamurthi | Brown University |
-| 9 | Deep Learning | Goodfellow, Bengio, Courville | deeplearningbook.org |
-| 10 | Operating Systems: Three Easy Pieces | Arpaci-Dusseau | UW-Madison |
 
 ---
 
 ## 🛠️ Teknologi & Dependensi
 
-- **Flutter SDK** — Framework utama pengembangan aplikasi mobile
-- **Dart** — Bahasa pemrograman
-- [`syncfusion_flutter_pdfviewer`](https://pub.dev/packages/syncfusion_flutter_pdfviewer) — Untuk menampilkan PDF dari URL
+- **Flutter SDK** — Framework utama pengembangan
+- **Dart** — Bahasa pemrograman logik
+- [`syncfusion_flutter_pdfviewer`](https://pub.dev/packages/syncfusion_flutter_pdfviewer) — Diaplikasikan dengan `.asset()` untuk menampilkan PDF statis.
 
 ---
 
@@ -82,12 +69,11 @@ lib/
    ```bash
    flutter run
    ```
-
-> **Catatan:** Pastikan emulator/device terhubung ke internet agar PDF dapat dimuat dari sumber online.
+   > **Info:** Semua buku sudah *bundled* (terpaket) di dalam APK. Aplikasi bisa dibuka dan buku bisa dibaca meskipun perangkat Anda sedang tidak terkoneksi ke internet / offline! 🎉
 
 ---
 
-## 👨‍💻 Informasi
+## 👨‍💻 Informasi Pengembang
 
 - **Mata Kuliah:** Pemrograman Perangkat Mobile
 - **Materi:** Pertemuan 6 — Navigasi dan Route
